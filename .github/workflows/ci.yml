@@ -1,10 +1,10 @@
-name: ML Pipeline (Regression Models Comparison) CI
+name: ML Pipeline (Hyperparameterised Regression Models Comparison) CI
 
 on:
   push:
-    branches: [ main, reg_branch, hyper_branch ]
+    branches: [ master, reg_branch, hyper_branch ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   test:
