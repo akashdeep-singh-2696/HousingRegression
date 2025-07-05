@@ -2,9 +2,9 @@ name: ML Pipeline (Regression Models Comparison) CI
 
 on:
   push:
-    branches: [ master, reg_branch, hyper_branch ]
+    branches: [ main, reg_branch, hyper_branch ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.10.18'
 
     - name: Install dependencies
       run: |
@@ -38,12 +38,3 @@ jobs:
     - name: Run regression pipeline
       run: |
         python regression.py
-
-    - name: Check for output files
-      run: |
-        ls -la
-        if [ -f "baseline_results.txt" ] || [ -f "hypertuned_results.txt" ]; then
-          echo "Results file found!"
-        else
-          echo "Warning: No results file found"
-        fi
